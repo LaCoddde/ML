@@ -45,6 +45,36 @@ gdp_per_capita =pd.read_csv(gdp, thousands=",", delimiter="\t", encoding="latin1
 print(oecd_bli)
 print(gdp_per_capita)
 
+list(gdp_per_capita.columns)
+
+# Test codes below
+
+
+gdp_year = 2020
+gdppc_col = "GDP per capita (USD)"
+lifesat_col = "Life satisfaction"
+
+# Filter the DataFrame for the specified year
+gdp_per_capita = gdp_per_capita[gdp_per_capita["Year"] == gdp_year]
+
+# Drop unnecessary columns
+gdp_per_capita = gdp_per_capita.drop(["Code", "Year"], axis=1)
+
+# Rename the remaining columns
+gdp_per_capita.columns = ["Country", gdppc_col]
+
+# Set the 'Country' column as the index
+gdp_per_capita.set_index("Country", inplace=True)
+
+# Display the first few rows
+gdp_per_capita.head()
+
+
+gdp_per_capita.head()
+
+
+
+#-----------
 
 
 # Prepare the data
